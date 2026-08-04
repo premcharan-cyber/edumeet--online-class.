@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduMeet — Online Class Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======= JOIN / ROLE SCREEN ======= -->
+  <section id="join-screen" class="screen active">
+    <div class="join-card">
+      <div class="brand">
+        <div class="brand-logo">🎓</div>
+        <h1>EduMeet</h1>
+        <p>Online Class Platform for Teachers &amp; Students</p>
+      </div>
+
+      <div class="form-group">
+        <label for="display-name">Your Name</label>
+        <input type="text" id="display-name" placeholder="Enter your full name" autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label>I am joining as…</label>
+        <div class="role-selector">
+          <button class="role-btn active" data-role="student">
+            <span class="role-icon">🎒</span>
+            <span class="role-label">Student</span>
+          </button>
+          <button class="role-btn" data-role="host">
+            <span class="role-icon">👨‍🏫</span>
+            <span class="role-label">Teacher</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="class-code">Class Code (optional)</label>
+        <input type="text" id="class-code" placeholder="e.g. ABC-123" />
+      </div>
+
+      <button id="join-btn" class="btn-primary">Join Class →</button>
+      <p class="hint">📷 Your camera &amp; microphone will be requested after joining.</p>
+    </div>
+  </section>
+
+  <!-- ======= CLASSROOM SCREEN ======= -->
+  <section id="classroom-screen" class="screen">
+    <header class="topbar">
+      <div class="bar-left">
+        <div class="brand-logo small">🎓</div>
+        <div>
+          <h2 id="class-title">Classroom</h2>
+          <span id="class-code-chip" class="chip">Code: —</span>
+        </div>
+      </div>
+      <div class="bar-center">
+        <button id="btn-chat" class="icon-btn" title="Chat">
+          <span>💬</span><span class="icon-badge" id="chat-badge">0</span>
+        </button>
+        <button id="btn-participants" class="icon-btn" title="Participants">
+          <span>👥</span><span class="icon-badge" id="participant-badge">0</span>
+        </button>
+      </div>
+      <div class="bar-right">
+        <span id="timer" class="timer">00:00</span>
+        <button id="btn-leave" class="btn-danger">Leave</button>
+      </div>
+    </header>
+
+    <main class="room">
+      <!-- Video grid -->
+      <div id="video-grid" class="video-grid"></div>
+
+      <!-- Right panel -->
+      <aside id="side-panel" class="side-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-panel="chat">💬 Chat</button>
+          <button class="panel-tab" data-panel="participants">👥 Participants</button>
+        </div>
+
+        <!-- Chat -->
+        <div id="panel-chat" class="panel-body active">
+          <div id="chat-messages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Type a message…" />
+            <button id="chat-send" class="btn-primary small">Send</button>
+          </div>
+        </div>
+
+        <!-- Participants -->
+        <div id="panel-participants" class="panel-body">
+          <ul id="participant-list" class="participant-list"></ul>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Control bar -->
+    <footer class="controlbar">
+      <button id="btn-mic" class="ctrl-btn active" title="Toggle microphone">
+        <span class="ctrl-icon">🎙️</span>
+        <span class="ctrl-label">Mic</span>
+      </button>
+      <button id="btn-cam" class="ctrl-btn active" title="Toggle camera">
+        <span class="ctrl-icon">📹</span>
+        <span class="ctrl-label">Camera</span>
+      </button>
+      <button id="btn-share" class="ctrl-btn" title="Share screen (host)">
+        <span class="ctrl-icon">🖥️</span>
+        <span class="ctrl-label">Share</span>
+      </button>
+      <button id="btn-mute-all" class="ctrl-btn host-only" title="Mute all (host)">
+        <span class="ctrl-icon">🔇</span>
+        <span class="ctrl-label">Mute All</span>
+      </button>
+      <button id="btn-leave2" class="ctrl-btn leave" title="Leave class">
+        <span class="ctrl-icon">📞</span>
+        <span class="ctrl-label">Leave</span>
+      </button>
+    </footer>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
